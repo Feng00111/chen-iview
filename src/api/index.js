@@ -1,7 +1,8 @@
-import { loadTodoAll, addTodo, removeTodo } from './data.js'
+import { loadTodoAll, addTodo, removeTodo, updateTodo } from './data.js'
 
 export {
   loadTodoAll,
   addTodo,
-  removeTodo
+  removeTodo,
+  updateTodo
 }

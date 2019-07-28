@@ -24,6 +24,15 @@ export const addTodo = (todo) => {
   })
 }
 
+export const updateTodo = (todo) => {
+  return axios.request({
+    url: '/api/todo/update',
+    method: 'post',
+    data: todo,
+    headers: { 'Content-Type': 'application/json' }
+  })
+}
+
 export const getTableData = () => {
   return axios.request({
     url: 'get_table_data',

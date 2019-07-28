@@ -1,11 +1,11 @@
 <template>
 <div>
-    <Button type="success" @click="newTodo">Add</Button>
+    <Button type="success" @click="add">Add</Button>
     <Table border :columns="columns7" :data="data6">
         <template slot-scope="{ row, index}" slot="action">
             <ButtonGroup size="small">
                 <Button type="info" ghost style="margin-right: 5px" @click="show(index)">View</Button>
-                <Button type="primary" style="margin-right: 5px" >Edit</Button>
+                <Button type="primary" style="margin-right: 5px" @click="edit(index)">Edit</Button>
                 <Button type="error" @click="remove(index)">Delete</Button>
             </ButtonGroup>
         </template>
@@ -59,8 +59,13 @@ export default {
         this.data6 = todos
       })
     },
-    newTodo () {
+    add () {
       this.$router.push('add')
+    },
+    edit (index) {
+      var t = this.data6[index]
+      sessionStorage.setItem('onEdit', JSON.stringify(t))
+      this.$router.push('edit')
     },
     remove (index) {
       var id = this.data6[index].id

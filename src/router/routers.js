@@ -73,7 +73,7 @@ export default [
         path: 'show',
         name: 'todo',
         meta: {
-          icon: 'ios-create',
+          icon: 'ios-book',
           title: 'myTodo'
         },
         component: () => import('@/view/chen-todo/index.vue')
@@ -82,11 +82,20 @@ export default [
         path: 'add',
         name: 'add-page',
         meta: {
-          icon: 'md-planet',
+          icon: 'ios-create',
           title: 'Add'
         },
         component: () => import('@/view/chen-todo/add.vue')
       },
+      {
+        path: 'edit',
+        name: 'edit-page',
+        meta: {
+          icon: 'ios-create',
+          title: 'Edit'
+        },
+        component: () => import('@/view/chen-todo/edit.vue')
+      }
     ]
   },
   {
