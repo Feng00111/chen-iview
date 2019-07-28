@@ -17,6 +17,7 @@ export default {
   data () {
     return {
       todo: {
+        id: '',
         time: '',
         todothing: ''
       }
@@ -27,7 +28,7 @@ export default {
       var t = JSON.stringify(this.todo)
       addTodo(t).then(res => {
         this.$Modal.info({
-          title: 'Add Info',
+          title: 'Edit Info',
           content: `${res.data.message}<br>`
         })
       })

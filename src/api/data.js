@@ -6,12 +6,21 @@ export const loadTodoAll = () => {
     method: 'get'
   })
 }
+
+export const removeTodo = (id) => {
+  return axios.request({
+    url: '/api/todo/delete',
+    method: 'get',
+    params: { 'id': id }
+  })
+}
+
 export const addTodo = (todo) => {
   return axios.request({
     url: '/api/todo/add',
     method: 'post',
     data: todo,
-    headers: { "Content-Type": "application/json" }
+    headers: { 'Content-Type': 'application/json' }
   })
 }
 
