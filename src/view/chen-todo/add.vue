@@ -1,4 +1,5 @@
 <template>
+<div>
     <Form ref="formCustom" :model="todo" :label-width="80">
         <FormItem label="time">
             <Input type="text" v-model="todo.time"></Input>
@@ -10,7 +11,12 @@
             <Button type="primary" @click="save" style="margin-left: 8px">Submit</Button>
         </FormItem>
     </Form>
+    <Modal v-model="isVisiable" title="Add Info" @on-ok="redirect">
+        <p>{{message}}<br></p>
+    </Modal>
+</div>
 </template>
+
 <script>
 import { addTodo } from '@/api'
 export default {
@@ -19,17 +25,26 @@ export default {
       todo: {
         time: '',
         todothing: ''
-      }
+      },
+      isVisiable: false,
+      message: ''
     }
   },
   methods: {
+    showModel () {
+      this.isVisiable = true
+    },
+    closeModel () {
+      this.isVisiable = false
+    },
+    redirect () {
+      this.$router.push('show')
+    },
     save () {
       var t = JSON.stringify(this.todo)
       addTodo(t).then(res => {
-        this.$Modal.info({
-          title: 'Add Info',
-          content: `${res.data.message}<br>`
-        })
+        this.message = res.data.message
+        this.showModel()
       })
     }
   }

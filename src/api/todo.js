@@ -14,3 +14,21 @@ export const removeTodo = (id) => {
     params: { 'id': id }
   })
 }
+
+export const addTodo = (todo) => {
+  return axios.request({
+    url: '/api/todo/add',
+    method: 'post',
+    data: todo,
+    headers: { 'Content-Type': 'application/json' }
+  })
+}
+
+export const updateTodo = (todo) => {
+  return axios.request({
+    url: '/api/todo/update',
+    method: 'post',
+    data: todo,
+    headers: { 'Content-Type': 'application/json' }
+  })
+}

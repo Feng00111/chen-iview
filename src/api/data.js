@@ -1,23 +1,5 @@
 import axios from '@/libs/api.request'
 
-export const addTodo = (todo) => {
-  return axios.request({
-    url: '/api/todo/add',
-    method: 'post',
-    data: todo,
-    headers: { 'Content-Type': 'application/json' }
-  })
-}
-
-export const updateTodo = (todo) => {
-  return axios.request({
-    url: '/api/todo/update',
-    method: 'post',
-    data: todo,
-    headers: { 'Content-Type': 'application/json' }
-  })
-}
-
 export const getTableData = () => {
   return axios.request({
     url: 'get_table_data',
